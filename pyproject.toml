@@ -1,0 +1,9 @@
+[project]
+name = "athletics-milestone"
+version = "0.1.0"
+description = "田径里程碑认定的服务端基础"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
