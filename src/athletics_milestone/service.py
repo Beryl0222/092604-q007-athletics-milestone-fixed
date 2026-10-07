@@ -1,6 +1,7 @@
-"""田径里程碑认定的最小应用服务。"""
+"""田径里程碑认定应用服务：基础登记与里程碑认定账。"""
 from .clock import Clock
 from .domain import Record
+from .ledger import MilestoneLedger
 from .store import Store
 
 
@@ -8,6 +9,7 @@ class Service:
     def __init__(self, store: Store | None = None, clock: Clock | None = None) -> None:
         self.store = store or Store()
         self.clock = clock or Clock()
+        self.ledger = MilestoneLedger(self.store, self.clock)
 
     def health(self) -> dict[str, str]:
         return {"service": "athletics_milestone", "status": "ok"}
